@@ -4,7 +4,7 @@
 Implemente um programa que resolva o problema clássico dos missionários e canibais utilizando algoritmos de busca (como busca em largura, ou busca em profundidade, ou busca A*, etc). 
 
 ## Solução
-> arquivo: aula9Pratico.py
+*arquivo: aula9Pratico.py*
 
 A solução foi modelada como um **grafo de estados** do problema.
 
