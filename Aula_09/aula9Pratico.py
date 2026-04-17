@@ -76,7 +76,33 @@ def build_graph(initial_state : tuple[int, int, int]):
     return g
 
 
+def find_path(graph: Graph, initial_state: tuple[int, int, int], final_state: tuple[int, int, int]):
+    # BFS no grafo para encontrar o menor caminho em numero de travessias.
+    queue: deque = deque([initial_state])
+    visited: set = {initial_state}
+    parent: dict = {initial_state: None}
+
+    while queue:
+        current = queue.popleft()
+
+        if current == final_state:
+            # Reconstrucao do caminho do destino ate a origem via mapa de pais.
+            path = []
+            while current is not None:
+                path.append(current)
+                current = parent[current]
+            path.reverse()
+            return path
+
+        for neighbour in graph.adj_list.get(current, []):
+            if neighbour not in visited:
+                visited.add(neighbour)
+                parent[neighbour] = current
+                queue.append(neighbour)
+
+    return []
 
 g = build_graph((3, 3, 0))
 print(g.get_order())
 print((0, 0, 1) in g.adj_list)
+print(find_path(g, (3, 3, 0), (0, 0, 1)))

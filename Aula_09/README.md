@@ -20,3 +20,14 @@ Em cada estado gerado, são aplicadas as restrições do problema:
 - Em nenhuma margem os missionários podem ficar em minoria em relação aos canibais, exceto quando não há missionários na margem.
 
 Com isso, o programa constrói automaticamente o grafo completo de estados alcançáveis a partir do estado inicial `(3,3,0)`, utilizando uma exploração em largura (BFS) com fila e conjunto de visitados para evitar repetições.
+
+Após construir o grafo, a função `find_path` é usada para encontrar o caminho do estado inicial até o estado final.
+
+Essa função também utiliza BFS, agora navegando pelas listas de adjacência do grafo. Durante a busca, ela mantém:
+- uma fila para explorar os estados em camadas;
+- um conjunto de visitados para não repetir estados;
+- um dicionário de pais (`parent`) para registrar de qual estado cada vértice foi alcançado.
+
+Quando o estado final é encontrado, o caminho é reconstruído voltando pelo dicionário `parent` desde o destino até a origem, e depois invertendo a ordem para retornar do início ao fim.
+
+Caso o estado final não seja alcançável a partir do estado inicial, a função retorna uma lista vazia (`[]`).
