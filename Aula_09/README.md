@@ -5,6 +5,7 @@ Implemente um programa que resolva o problema clássico dos missionários e cani
 
 ## Solução
 > arquivo: aula9Pratico.py
+
 A solução foi modelada como um **grafo de estados** do problema.
 
 Cada vértice representa uma configuração no formato:
